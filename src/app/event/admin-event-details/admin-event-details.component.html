@@ -1,0 +1,21 @@
+<div class="container " >
+  
+   
+  <div class="row ">
+     <div class="col-6 bg-success">
+    Title<input type="text" class="form-control"[(ngModel)]="event.title"><br>
+    Date<input type="text" class="form-control"[(ngModel)]="event.date"><br>
+    Main Speaker ID<input type="text"  class="form-control"[(ngModel)]="event.mainSpeakerId"><br>
+    Other Speakers ID<input type="text" readonly="readonly" class="form-control"[(ngModel)]="event.otherSpeakersId"><br>
+    Add Speakers Id To The Event<input type="text" class="form-control"[(ngModel)]="otherSpeakers"><br>
+    Students ID<input type="text" readonly="readonly" class="form-control"[(ngModel)]="event.studentsId"><br>
+    Add Students Id To The Event<input type="text" class="form-control"[(ngModel)]="studentsId"><br>
+    
+   <button class="btn btn-danger" (click)="update()">Update Data</button>
+   <br>
+   <br> 
+
+</div>
+</div>
+
+</div> 

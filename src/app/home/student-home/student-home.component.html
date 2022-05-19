@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1 {font-family: "Raleway", Arial, sans-serif}
+h1 {letter-spacing: 6px}
+.w3-row-padding img {margin-bottom: 12px}
+</style>
+</head>
+<body>
+
+ 
+ <div class="w3-content" style="max-width:1500px"> 
+
+<!-- Header -->
+
+<header>
+  <!-- <div>
+    <div class="w3-bar w3-border">
+       <a href="#" class="w3-bar-item w3-button" [routerLink]="['/studentedit']" >Edit Your Data</a>
+      <a href="#" class="w3-bar-item w3-button w3-light-grey" [routerLink]="['/showevents']">See Your Events</a> 
+   
+
+    </div>
+  </div> -->
+</header> 
+
+<content>
+    <div class="container " >
+  
+   
+        <div class="row ">
+           <div class="col-6 bg-stripped">
+            <label style="text-align:center;" class="form-control bg-info">Edit Your Data</label>
+            
+             Email<input type="text" class="form-control"[(ngModel)]="student.email"><br>
+             User Name<input type="text" class="form-control"[(ngModel)]="student.username"><br>
+             Password<input type="text" class="form-control"[(ngModel)]="student.password"><br>
+             <button class="btn btn-danger" (click)="update()">Update Data</button>
+       <br>
+       <br>
+
+
+   
+  
+    </div>
+    
+
+
+<div class="col-6 bg-stripped">
+    <label class="form-control bg-info" style="text-align:center;">See Your Upcoming Events</label>
+           
+<table class="table table-striped ">
+    <thead>
+        <tr>
+          
+            <th>Title</th>
+             <th>Date</th> 
+        
+      
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of events">
+       
+          
+            <td>{{item.title}}</td>
+           <td>{{item.date}}</td>
+      
+        </tr>
+        
+    </tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+     
+
+      
+    
+    
+</content>
+  
+</div>
+
+<div> 
+
+
+</div>
+</body>
+</html>

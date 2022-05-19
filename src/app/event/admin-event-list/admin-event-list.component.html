@@ -1,0 +1,57 @@
+<!-- <style>
+     .margin-left{
+    margin-left: 10px 
+}
+
+</style> -->
+
+<table class="table table-striped ">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+             <th>Date</th> 
+            <th>Main Speaker Id</th>
+            <th>Other Speakers Id</th>
+            <th>Students Id</th> 
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of events">
+       
+            <td>{{item._id}}</td>
+            <td>{{item.title}}</td>
+           <td>{{item.date}}</td>
+            <td>{{item.mainSpeakerId}}</td>
+            <td>{{item.otherSpeakersId}}</td>
+            <td>{{item.studentsId}}</td> 
+            <td>
+               <div > 
+                <a class="btn btn-info  "[routerLink]="['/adminevents/details',item._id]">Details</a>
+                <button class="btn btn-danger  margin-left" (click)="Delete(item._id)">Delete</button>
+                </div>
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+
+<div class="container " >
+  
+   
+    <div class="row ">
+       <div class="col-6 bg-light ">
+           
+     <label class="form-control bg-info" style="text-align: center;">Add New Event</label>
+    ID<input type="text" class="form-control" [(ngModel)]="nevent._id"><br>
+    Title<input type="text" class="form-control"[(ngModel)]="nevent.title"><br>
+    Date<input type="text" class="form-control"[(ngModel)]="nevent.date"><br>
+    Main Speaker ID<input type="text" class="form-control"[(ngModel)]="nevent.mainSpeakerId"><br>
+    Other Speakers ID<input type="text" class="form-control"[(ngModel)]="otherSpeakers"><br>
+    Students ID<input type="text" class="form-control"[(ngModel)]="studentsId"><br>
+  
+    <button class="btn btn-danger" (click)="add()">Add Events</button>
+</div>
+</div>
+</div>
