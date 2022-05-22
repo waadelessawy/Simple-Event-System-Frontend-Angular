@@ -4,6 +4,10 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Event } from 'src/app/_models/event';
 import { EventService } from 'src/app/event.service';
+import { SpeakerService } from 'src/app/speaker.service';
+import { StudentService } from 'src/app/student.service';
+import { Speaker } from 'src/app/_models/speaker';
+import { Student } from 'src/app/_models/student';
 
 
 @Component({
@@ -14,11 +18,13 @@ import { EventService } from 'src/app/event.service';
 export class AdminEventDetailsComponent implements OnInit {
 
   event : Event=new Event(0,"","",0,[0],[0]);
-   x=[];
-   otherSpeakers="";
-   studentsId="";
+  speaker : Speaker=new Speaker(0,"","","","","","");
+  speakers : Speaker[]=[]
+  students : Student[]=[]
+  student : Student =new Student(0,"","","");
 
-  constructor(public ac:ActivatedRoute,public EventService:EventService,public router:Router) { }
+
+  constructor(public ac:ActivatedRoute,public EventService:EventService,public router:Router,public StudentService:StudentService,public SpeakerService:SpeakerService) { }
 
   ngOnInit(): void {
 
@@ -29,8 +35,14 @@ export class AdminEventDetailsComponent implements OnInit {
 
 
         )
-        console.log(this.event);
+       
 
+      })
+      this.StudentService.getAllStudents().subscribe(a=>{
+        this.students=a;
+      })
+      this.SpeakerService.getAllSpeakers().subscribe(a=>{
+        this.speakers=a;
       })
 
     }
@@ -43,15 +55,6 @@ export class AdminEventDetailsComponent implements OnInit {
         )
   
       })
-
-      this.event.otherSpeakersId=this.otherSpeakers.split(',').map(function(item) {
-        return parseInt(item, 10);
-      });
-     this.event.studentsId=this.studentsId.split(',').map(function(item) {
-         return parseInt(item, 10);
-     });
-  
-      console.log(this.otherSpeakers);
       this.EventService.UpdateEvent(this.event._id,this.event).subscribe(a=>{
         console.log("Done");
         this.router.navigate(['/adminevents'])

@@ -2,7 +2,10 @@ import { Component, OnChanges, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { EventService } from 'src/app/event.service';
-// import { StudentService } from 'src/app/student.service';
+import { SpeakerService } from 'src/app/speaker.service';
+import { StudentService } from 'src/app/student.service';
+import { Speaker } from 'src/app/_models/speaker';
+import { Student } from 'src/app/_models/student';
 import {Event} from 'src/app/_models/event'
 
 
@@ -13,16 +16,17 @@ import {Event} from 'src/app/_models/event'
 })
 export class AdminEventListComponent implements OnInit {
 
-  constructor(public EventService:EventService,public router:Router) { }
+  constructor(public EventService:EventService,public router:Router,public StudentService:StudentService,public SpeakerService:SpeakerService) { }
   
 
 
   events:Event[]=[];
   event : Event=new Event(0,"","",0,[0],[0]);
   nevent : Event=new Event(0,"","",0,[0],[0]);
-  otherSpeakers="";
-  studentsId="";
-
+  speaker : Speaker=new Speaker(0,"","","","","","");
+  speakers : Speaker[]=[]
+  students : Student[]=[]
+  student : Student =new Student(0,"","","");
   ngOnInit(): void {
     this.EventService.getAllEvents().subscribe(a=>{
       
@@ -30,13 +34,19 @@ export class AdminEventListComponent implements OnInit {
      
       console.log(a);
     })
+    this.StudentService.getAllStudents().subscribe(a=>{
+      this.students=a;
+    })
+    this.SpeakerService.getAllSpeakers().subscribe(a=>{
+      this.speakers=a;
+    })
 
     
 
 
   }
   Delete(id:number){
-    this.event=this.events[id];
+    // this.event=this.events[id];
     this.EventService.DeleteEvent(id).subscribe(a=>{
       this.ngOnInit()
     })
@@ -46,12 +56,7 @@ export class AdminEventListComponent implements OnInit {
 
   }
   add(){
-    this.nevent.otherSpeakersId=this.otherSpeakers.split(',').map(function(item) {
-      return parseInt(item, 10);
-    });
-   this.nevent.studentsId=this.studentsId.split(',').map(function(item) {
-       return parseInt(item, 10);
-   });
+
     console.log(this.nevent._id);
     // this.nevent._id=5;
 

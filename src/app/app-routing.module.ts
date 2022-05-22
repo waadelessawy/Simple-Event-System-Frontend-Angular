@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminEventDetailsComponent } from './event/admin-event-details/admin-event-details.component';
 import { AdminEventListComponent } from './event/admin-event-list/admin-event-list.component';
+import { AdminHomeComponent } from './home/admin-home/admin-home.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
 import { SpeakerHomeComponent } from './home/speaker-home/speaker-home.component';
@@ -26,6 +27,9 @@ const routes: Routes = [
   // {path:"studentedit/:id",component:StudentEditComponent},
   {path:"student/:id",component:StudentHomeComponent},
   {path:"speaker/:id",component:SpeakerHomeComponent},
+  {path:"admin/home",component:AdminHomeComponent},
+  {path:"student",component:StudentHomeComponent},
+  {path:"speaker",component:SpeakerHomeComponent}
 
   // {path:"showevents/:id",component:StudentEventsComponent}
 

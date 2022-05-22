@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { response } from 'express';
 import { Event } from './_models/event';
 import { map } from 'rxjs/operators'
@@ -10,22 +10,37 @@ import { map } from 'rxjs/operators'
 export class EventService {
 
   baseUrl="http://localhost:7000/events/";
+  httpOptions= {headers:{}}
+  GetToken()  {
+    let t = localStorage.getItem('token');
+    console.log("token inside get"+t);
+
+    let headers_object = new HttpHeaders().set("Authorization","Bearer"+t);
+    this.httpOptions={
+      headers:headers_object
+    }
+  }
   getAllEvents(){
-    return this.http.get<Event[]>(this.baseUrl)
+    this.GetToken();
+    return this.http.get<Event[]>(this.baseUrl,this.httpOptions)
   }
 
   UpdateEvent(id:number,event:Event){
-    return this.http.put<Event>(this.baseUrl+id,event);
+    this.GetToken();
+    return this.http.put<Event>(this.baseUrl+id,event,this.httpOptions);
   }
   getEventById(id:number){
-    return this.http.get<Event>(this.baseUrl+id);
+    this.GetToken();
+    return this.http.get<Event>(this.baseUrl+id,this.httpOptions);
   }
   CreateEvent(event:Event){
-   return this.http.post<Event>(this.baseUrl,event);
+    this.GetToken()
+   return this.http.post<Event>(this.baseUrl,event,this.httpOptions);
 
   }
   DeleteEvent(id:number){
-    return this.http.delete<Event>(this.baseUrl+id);
+    this.GetToken()
+    return this.http.delete<Event>(this.baseUrl+id,this.httpOptions);
 
   }
 

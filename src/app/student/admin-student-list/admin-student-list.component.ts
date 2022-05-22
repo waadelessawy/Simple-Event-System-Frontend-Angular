@@ -25,8 +25,7 @@ export class AdminStudentListComponent implements OnInit {
 
      
     })
-    console.log("students");
-    
+  
 
 
   }

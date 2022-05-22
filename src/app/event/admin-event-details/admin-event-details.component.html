@@ -2,14 +2,21 @@
   
    
   <div class="row ">
-     <div class="col-6 bg-success">
+     <div class="col-6 bg-light">
     Title<input type="text" class="form-control"[(ngModel)]="event.title"><br>
     Date<input type="text" class="form-control"[(ngModel)]="event.date"><br>
-    Main Speaker ID<input type="text"  class="form-control"[(ngModel)]="event.mainSpeakerId"><br>
+  
+    Main Speaker <select [(ngModel)]="event.mainSpeakerId" >
+        <option *ngFor="let item of speakers" value="{{item._id}}">{{item.username}}</option>
+     </select>  <br>
     Other Speakers ID<input type="text" readonly="readonly" class="form-control"[(ngModel)]="event.otherSpeakersId"><br>
-    Add Speakers Id To The Event<input type="text" class="form-control"[(ngModel)]="otherSpeakers"><br>
+    Add Speakers To The Event <select [(ngModel)]="event.otherSpeakersId" multiple  class="form-select">
+      <option *ngFor="let item of speakers" value="{{item._id}}">{{item.username}}</option>
+   </select><br>
     Students ID<input type="text" readonly="readonly" class="form-control"[(ngModel)]="event.studentsId"><br>
-    Add Students Id To The Event<input type="text" class="form-control"[(ngModel)]="studentsId"><br>
+    Add Students To The Event <select [(ngModel)]="event.studentsId" multiple  class="form-select">
+      <option *ngFor="let item of students" value="{{item._id}}">{{item.username}}</option>
+   </select>
     
    <button class="btn btn-danger" (click)="update()">Update Data</button>
    <br>

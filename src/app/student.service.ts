@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { response } from 'express';
 import { Student } from './_models/student';
 import { map } from 'rxjs/operators';
@@ -9,29 +9,38 @@ import { map } from 'rxjs/operators';
 export class StudentService {
 
   baseUrl="http://localhost:7000/students/";
+  httpOptions= {headers:{}}
+  GetToken()  {
+    let t = localStorage.getItem('token');
+    
+    let headers_object = new HttpHeaders().set("Authorization","Bearer"+t);
+    this.httpOptions={
+      headers:headers_object
+    };
+  }
   getAllStudents(){
-    return this.http.get<Student[]>(this.baseUrl)
+    this.GetToken();
+    console.log("token in side students"+localStorage.getItem('token'));
+    return this.http.get<Student[]>(this.baseUrl,this.httpOptions)
   }
 
-  // getStudentByIdForAdmin(id:number){
-  //   return this.http.get<Student>(this.baseUrl+id);
-  // }
   getStudentById(id:number){
-    return this.http.get<Student>(this.baseUrl+id);
+    this.GetToken();
+    return this.http.get<Student>(this.baseUrl+id,this.httpOptions);
   }
-  // UpdateStudentByAdmin(id:number,std:Student){
-  //   return this.http.put<Student>(this.baseUrl+id,std);
-  // }
 
   UpdateStudent(std:Student,id:number){
-    return this.http.put<Student>(this.baseUrl+id,std);
+    this.GetToken();
+    return this.http.put<Student>(this.baseUrl+id,std,this.httpOptions);
   }
   CreateStudent(std:Student){
-   return this.http.post<Student>(this.baseUrl,std);
+    this.GetToken();
+   return this.http.post<Student>(this.baseUrl,std,this.httpOptions);
 
   }
   DeleteStudent(id:number){
-    return this.http.delete<Student>(this.baseUrl+id);
+    this.GetToken();
+    return this.http.delete<Student>(this.baseUrl+id,this.httpOptions);
 
   }
 
