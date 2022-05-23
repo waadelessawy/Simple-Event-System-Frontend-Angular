@@ -18,8 +18,11 @@ export class StudentService {
       headers:headers_object
     };
   }
+ 
   getAllStudents(){
+
     this.GetToken();
+    console.log(this.httpOptions);
     console.log("token in side students"+localStorage.getItem('token'));
     return this.http.get<Student[]>(this.baseUrl,this.httpOptions)
   }

@@ -16,9 +16,10 @@ export class AdminSpeakerListComponent implements OnInit {
   constructor(public SpeakerService:SpeakerService,public router:Router) { }
 
   speakers:Speaker[]=[];
-  spk : Speaker=new Speaker(0,"","","","","","");
-  nspk : Speaker=new Speaker(0,"","non","non","","","");
+  spk : Speaker=new Speaker(0,"","","","","","","");
+  nspk : Speaker=new Speaker(0,"","non","non","","","","");
   ngOnInit(): void {
+    console.log("hellooooooooooooooooooooooooooooooooooooo");
     this.SpeakerService.getAllSpeakers().subscribe(a=>{
       
       this.speakers=a  ;

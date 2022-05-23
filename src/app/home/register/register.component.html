@@ -1,1 +1,63 @@
-<p>register works!</p>
+
+
+<!-- <div *ngIf="isShown" class="container"> -->
+    <div class="radio">  
+        <label>  
+            <input type="radio" name="radio" value="student" (click)="setradio('student')" [checked]='true' ngModel>  
+           Student
+       </label>  
+     </div>  
+     <div class="radio">  
+      <label>  
+         <input type="radio" name="radio" value="speaker" (click)="setradio('speaker')" ngModel>  
+             Speaker
+       </label>  
+     </div>  
+     
+     <div  >  
+        <div *ngIf="isSelected('speaker')" >
+            <div  class="container " >
+  
+   
+                <div class="row ">
+                   <div class="col-6 bg-stripped ">
+                       
+                 <label class="form-control bg-info" style="text-align: center;">Register Now As Speaker</label>
+                <!-- Role<input type="text" class="form-control" [(ngModel)]="speaker.role"><br> -->
+                User Name<input type="text" class="form-control"[(ngModel)]="speaker.username"><br>
+                Email<input type="text" class="form-control"[(ngModel)]="speaker.email"><br>
+                Password<input type="text" class="form-control"[(ngModel)]="speaker.password"><br>
+          
+              
+                <button class="btn btn-danger" (click)="signup()">Sign Up</button>
+                <a href="#" class="link-primary" [routerLink]="['/admin/home']">Back</a>
+            </div>
+            </div>
+            </div>
+    </div>
+
+       
+     </div>  
+     
+     <div *ngIf="isSelected('student')">  
+        <div  class="container " >
+  
+   
+            <div class="row ">
+               <div class="col-6 bg-stripped ">
+                   
+             <label class="form-control bg-info" style="text-align: center;">Register Now As Student</label>
+            <!-- Role<input type="text" class="form-control" [(ngModel)]="speaker.role"><br> -->
+            User Name<input type="text" class="form-control"[(ngModel)]="student.username"><br>
+            Email<input type="text" class="form-control"[(ngModel)]="student.email"><br>
+            Password<input type="text" class="form-control"[(ngModel)]="student.password"><br>
+      
+          
+            <button class="btn btn-danger" (click)="signup()">Sign Up</button>
+            <a href="#" class="link-primary" [routerLink]="['/admin/home']">Back</a>
+        </div>
+        </div>
+        </div>
+      
+      
+     </div>

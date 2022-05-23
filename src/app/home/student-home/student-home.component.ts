@@ -14,7 +14,7 @@ import {Event} from 'src/app/_models/event'
 })
 export class StudentHomeComponent implements OnInit {
 
-  student:Student=new Student(0,"","","");
+  student:Student=new Student(0,"","","","");
   students:Student[]=[];
   events:Event[]=[];
   parameterVal=0;

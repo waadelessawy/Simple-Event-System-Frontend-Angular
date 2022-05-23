@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminEventDetailsComponent } from './event/admin-event-details/admin-event-details.component';
 import { AdminEventListComponent } from './event/admin-event-list/admin-event-list.component';
 import { AdminHomeComponent } from './home/admin-home/admin-home.component';
+import { LandingPageComponent } from './home/landing-page/landing-page.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
 import { SpeakerHomeComponent } from './home/speaker-home/speaker-home.component';
@@ -29,7 +30,10 @@ const routes: Routes = [
   {path:"speaker/:id",component:SpeakerHomeComponent},
   {path:"admin/home",component:AdminHomeComponent},
   {path:"student",component:StudentHomeComponent},
-  {path:"speaker",component:SpeakerHomeComponent}
+  {path:"speaker",component:SpeakerHomeComponent},
+  {path:"landing",component:LandingPageComponent},
+  {path:" ",redirectTo:"landing",pathMatch:"full"}
+ 
 
   // {path:"showevents/:id",component:StudentEventsComponent}
 

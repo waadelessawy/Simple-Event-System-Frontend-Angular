@@ -26,9 +26,9 @@ h1 {letter-spacing: 6px}
 
 <header>
   <div>
-    <div class="w3-bar w3-border">
-      <a href="#" class="w3-bar-item w3-button" [routerLink]="['/login']" >Login</a>
-      <a href="#" class="w3-bar-item w3-button w3-light-grey" [routerLink]="['/register']">Register</a>
+    <div *ngIf="isShown" class="bg-primary">
+      <a href="#" (click)="DivShow()" class="w3-bar-item w3-button" [routerLink]="['/login']" >Login</a>
+      <a href="#" (click)="DivShow()" class="w3-bar-item w3-button w3-light-grey" [routerLink]="['/register']">Register</a>
 
 
 

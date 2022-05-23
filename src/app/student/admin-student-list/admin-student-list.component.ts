@@ -14,17 +14,21 @@ export class AdminStudentListComponent implements OnInit {
   constructor(public StudentService:StudentService,public router:Router) { }
 
   students:Student[]=[];
-  std : Student=new Student(0,"","","");
-  nstd : Student=new Student(0,"","non","non");
+  std : Student=new Student(0,"","","","");
+  nstd : Student=new Student(0,"","","","");
   ngOnInit(): void {
     this.StudentService.getAllStudents().subscribe(a=>{
+
       
       this.students=a  ;
       console.log(this.students);
       console.log(a);
 
      
-    })
+    },
+    error=>console.log(error)
+    
+    )
   
 
 

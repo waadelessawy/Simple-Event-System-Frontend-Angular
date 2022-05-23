@@ -11,7 +11,7 @@ import { StudentService } from 'src/app/student.service';
   styleUrls: ['./admin-student-details.component.less']
 })
 export class AdminStudentDetailsComponent implements OnInit {
-  student:Student=new Student(0,"","","");
+  student:Student=new Student(0,"","","","");
 
   constructor(public ac:ActivatedRoute,public StudentService:StudentService,public router:Router) { }
   // ngOnDestroy(){

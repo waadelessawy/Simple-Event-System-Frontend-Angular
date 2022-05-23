@@ -6,7 +6,8 @@ export class Speaker {
        public password:string,
        public city:string,
        public street:string,
-       public building:string
+       public building:string,
+       public role :string
 
     ){}
 

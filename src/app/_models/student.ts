@@ -3,6 +3,7 @@ export class Student {
          public _id:number,
          public email:string,
          public username:string,
-         public password:string
+         public password:string,
+         public role:string
     ){ }
 }

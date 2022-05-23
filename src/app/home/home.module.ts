@@ -8,7 +8,7 @@ import { StudentHomeComponent } from './student-home/student-home.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { FormGroup, FormsModule, Validators } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 
 
@@ -22,7 +22,7 @@ import { FormGroup, FormsModule, Validators } from '@angular/forms';
       RegisterComponent
   ],
   imports: [
-    CommonModule,RouterModule,FormsModule
+    CommonModule,RouterModule,FormsModule,ReactiveFormsModule
   ],
   exports:[
     AdminHomeComponent,

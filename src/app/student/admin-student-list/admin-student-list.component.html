@@ -15,12 +15,13 @@
                 
                 <a class="btn btn-info" [routerLink]="['/adminstudents/details',item._id]">Details</a>
                 <button class="btn btn-danger margin-left" (click)="Delete(item._id)">Delete</button>
+                
             </td>
         </tr>
         
     </tbody>
 </table>
-
+<a href="#" class="link-primary" [routerLink]="['/admin/home']">Back</a>
 <!-- 
 <div class="container " >
   

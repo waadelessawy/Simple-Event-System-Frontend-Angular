@@ -23,10 +23,10 @@ export class AdminEventListComponent implements OnInit {
   events:Event[]=[];
   event : Event=new Event(0,"","",0,[0],[0]);
   nevent : Event=new Event(0,"","",0,[0],[0]);
-  speaker : Speaker=new Speaker(0,"","","","","","");
+  speaker : Speaker=new Speaker(0,"","","","","","","");
   speakers : Speaker[]=[]
   students : Student[]=[]
-  student : Student =new Student(0,"","","");
+  student : Student =new Student(0,"","","","");
   ngOnInit(): void {
     this.EventService.getAllEvents().subscribe(a=>{
       

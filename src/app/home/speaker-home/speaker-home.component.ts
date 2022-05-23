@@ -13,7 +13,7 @@ import { Speaker } from 'src/app/_models/speaker';
 })
 export class SpeakerHomeComponent implements OnInit {
 
-  speaker:Speaker=new Speaker(0,"","","","","","");
+  speaker:Speaker=new Speaker(0,"","","","","","","");
   students:Speaker[]=[];
   events:Event[]=[];
   parameterVal=0;

@@ -18,10 +18,10 @@ import { Student } from 'src/app/_models/student';
 export class AdminEventDetailsComponent implements OnInit {
 
   event : Event=new Event(0,"","",0,[0],[0]);
-  speaker : Speaker=new Speaker(0,"","","","","","");
+  speaker : Speaker=new Speaker(0,"","","","","","","");
   speakers : Speaker[]=[]
   students : Student[]=[]
-  student : Student =new Student(0,"","","");
+  student : Student =new Student(0,"","","","");
 
 
   constructor(public ac:ActivatedRoute,public EventService:EventService,public router:Router,public StudentService:StudentService,public SpeakerService:SpeakerService) { }
@@ -32,10 +32,7 @@ export class AdminEventDetailsComponent implements OnInit {
       this.ac.params.subscribe(a=>{
         this.EventService.getEventById(a['id']).subscribe(
           s=>this.event=s
-
-
         )
-       
 
       })
       this.StudentService.getAllStudents().subscribe(a=>{
@@ -58,7 +55,7 @@ export class AdminEventDetailsComponent implements OnInit {
       this.EventService.UpdateEvent(this.event._id,this.event).subscribe(a=>{
         console.log("Done");
         this.router.navigate(['/adminevents'])
-        console.log(this.event.otherSpeakersId);
+
 
       })
 

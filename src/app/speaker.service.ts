@@ -34,8 +34,8 @@ export class SpeakerService {
     return this.http.put<Speaker>(this.baseUrl+id,spk,this.httpOptions);
   }
   CreateSpeaker(spk:Speaker){
-    this.GetToken();
-   return this.http.post<Speaker>(this.baseUrl,spk,this.httpOptions);
+    // this.GetToken();
+   return this.http.post<Speaker>(this.baseUrl,spk);
 
   }
   DeleteSpeaker(id:number){
