@@ -3,7 +3,7 @@
 <!-- <div *ngIf="isShown" class="container"> -->
     <div class="radio">  
         <label>  
-            <input type="radio" name="radio" value="student" (click)="setradio('student')" [checked]='true' ngModel>  
+            <input type="radio" name="radio" value="student" (click)="setradio('student')" checked>  
            Student
        </label>  
      </div>  
@@ -54,7 +54,7 @@
       
           
             <button class="btn btn-danger" (click)="signup()">Sign Up</button>
-            <a href="#" class="link-primary" [routerLink]="['/admin/home']">Back</a>
+            <a href="#" class="link-primary" [routerLink]="['/landing']">Back</a>
         </div>
         </div>
         </div>
