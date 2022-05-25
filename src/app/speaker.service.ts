@@ -14,7 +14,7 @@ export class SpeakerService {
   httpOptions= {headers:{}}
   GetToken()  {
     let t = localStorage.getItem('token');
-    let headers_object = new HttpHeaders().set("Authorization","Bearer"+t);
+    let headers_object = new HttpHeaders().set("Authorization","Bearer "+t);
     this.httpOptions={
       headers:headers_object
     }
@@ -34,8 +34,8 @@ export class SpeakerService {
     return this.http.put<Speaker>(this.baseUrl+id,spk,this.httpOptions);
   }
   CreateSpeaker(spk:Speaker){
-    // this.GetToken();
-   return this.http.post<Speaker>(this.baseUrl,spk);
+     this.GetToken();
+   return this.http.post<Speaker>(this.baseUrl,spk,this.httpOptions);
 
   }
   DeleteSpeaker(id:number){

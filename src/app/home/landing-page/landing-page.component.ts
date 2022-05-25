@@ -1,6 +1,7 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { access } from 'fs';
 
 
 @Component({
@@ -9,14 +10,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing-page.component.less']
 })
 export class LandingPageComponent implements OnInit, OnChanges {
-  isShown: boolean = false ;
+  isShown: boolean = true ;
   constructor(public router:Router,public ar:ActivatedRoute) { }
 
   ngOnInit(): void {
 
-   
-    this.isShown=true;
-    
+  
   }
   
   ngOnChanges(changes: SimpleChanges): void {
@@ -24,14 +23,8 @@ export class LandingPageComponent implements OnInit, OnChanges {
     
   }
   DivShow() {
-    this.isShown = ! this.isShown;
-   
-    // if(this.router.url=='/login'){
-    //   console.log(this.router.url)
-    //   console.log("true")
-    //   this.isShown = ! this.isShown;
-    // }
-
+    this.isShown = false;
+  
     
     }
 

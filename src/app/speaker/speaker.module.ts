@@ -5,6 +5,7 @@ import { AdminSpeakerListComponent } from './admin-speaker-list/admin-speaker-li
 import { AdminSpeakerDetailsComponent } from './admin-speaker-details/admin-speaker-details.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HomeModule } from '../home/home.module';
 
 
 
@@ -23,11 +24,12 @@ import { FormsModule } from '@angular/forms';
  
   ],
   imports: [
-    CommonModule,RouterModule,FormsModule
+    CommonModule,RouterModule,FormsModule,HomeModule
   ],
   exports:[
     AdminSpeakerDetailsComponent,
     AdminSpeakerListComponent,
+
 
     
   ]

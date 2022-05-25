@@ -9,6 +9,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CoreModule } from '../core/core.module';
 
 
 
@@ -22,7 +23,7 @@ import { FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angula
       RegisterComponent
   ],
   imports: [
-    CommonModule,RouterModule,FormsModule,ReactiveFormsModule
+    CommonModule,RouterModule,FormsModule,ReactiveFormsModule,CoreModule
   ],
   exports:[
     AdminHomeComponent,

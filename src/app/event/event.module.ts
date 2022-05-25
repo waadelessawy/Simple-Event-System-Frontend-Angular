@@ -4,6 +4,7 @@ import { AdminEventListComponent } from './admin-event-list/admin-event-list.com
 import { AdminEventDetailsComponent } from './admin-event-details/admin-event-details.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HomeModule } from '../home/home.module';
 
 
 
@@ -13,7 +14,7 @@ import { FormsModule } from '@angular/forms';
     AdminEventDetailsComponent
   ],
   imports: [
-    CommonModule,RouterModule,FormsModule
+    CommonModule,RouterModule,FormsModule,HomeModule
   ],
   exports:[
     AdminEventDetailsComponent,

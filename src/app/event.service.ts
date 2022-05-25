@@ -15,7 +15,7 @@ export class EventService {
     let t = localStorage.getItem('token');
     console.log("token inside get"+t);
 
-    let headers_object = new HttpHeaders().set("Authorization","Bearer"+t);
+    let headers_object = new HttpHeaders().set("Authorization","Bearer "+t);
     this.httpOptions={
       headers:headers_object
     }

@@ -26,8 +26,6 @@ export class LoginComponent implements OnInit {
   
   ngOnInit(): void {
    
- 
-  
     this.studSer.getAllStudents().subscribe(a=>{
       this.studs=a ;
     
@@ -36,25 +34,27 @@ export class LoginComponent implements OnInit {
       this.speakers=a ;
     
     })
+  
          
   }
   home(){
     this.router.navigateByUrl("/landing")
   }
     validateLogin() {
-      if(this.user.email=="waad.elessawy@gmail.com" && this.user.password=="123") {
-        this.loginService.login(this.user).subscribe(result => {
-          this.role=result[2];
-          console.log("role is:"+this.role)
-      //resukt==>token
       
-        localStorage.setItem('token', result[1]);
-        localStorage.setItem('role', result[2]);
+   
+      if(this.user.email=="waad.elessawy@gmail.com") {
+        this.loginService.login(this.user).subscribe(result => {
+        this.role=result.role;
+     
+      
+        localStorage.setItem('token', result.token);
+        localStorage.setItem('role', result.role);
 
         let t=   localStorage.getItem('token');
        
-        console.log('roleeee'+result[2])
-        console.log("role is:"+this.role)
+        console.log('local storage' ,localStorage.getItem('token'))
+       
         this.router.navigateByUrl("/admin/home")
 
      
@@ -66,13 +66,12 @@ export class LoginComponent implements OnInit {
       }
       else  {
   
-        console.log("students");
-        let flag = "f";
-        console.log('bla bla bla')
+
+      
         for (var val of this.studs){
-         console.log(val+" hiiii");
+    
          
-            if(this.user.email==val.email && this.user.password==val.password ){
+            if(this.user.email==val.email){
               
               this.loginService.login(this.user).subscribe(result => {
                
@@ -95,21 +94,16 @@ export class LoginComponent implements OnInit {
           
   
   
-          console.log("speakers");
-          let flag = "f";
-          console.log('bla bla bla')
           for (var val1 of this.speakers){
-           console.log(val1+" hiiii");
+         
            
-              if(this.user.email==val1.email && this.user.password==val1.password ){
-                console.log('email of mongo '+val1.email);
-                console.log('email of bodyy '+this.user.email);
+              if(this.user.email==val1.email ){
+             
                 this.loginService.login(this.user).subscribe(result => {
-                  console.log('result is ', result);
+                 
                   
                   this.router.navigateByUrl("/speaker/"+val1._id)
-                  // flag="t";
-    
+                 
                   
                 }
                 , error => {

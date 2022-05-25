@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
    
   constructor(public studentService:StudentService,public fb:FormBuilder,public speakerService:SpeakerService,public authService:AuthenticationService,public router:Router) { }
   speaker:Speaker=new Speaker(0,"","","","","","","speaker");
-  student:Student=new Student(0,"","","","");
+  student:Student=new Student(0,"","","","student");
   speakers:Speaker[]=[];
   students:Student[]=[];
   ngOnInit(): void {
@@ -39,9 +39,10 @@ isSelected(name: string): boolean {
 }  
 signup(){
 if(this.selectedLink == 'speaker'){
+  console.log("Speakers", this.selectedLink)
 
   this.speaker.role="speaker";
-  // this.authService.register(this.speaker).subscribe()
+
   this.speakerService.getAllSpeakers().subscribe(a=>{
     this.speakers=a;
     for(let i=0;i<a.length;i++){
@@ -58,7 +59,7 @@ if(this.selectedLink == 'speaker'){
 }else if(this.selectedLink == 'student'){
 
   this.student.role="student";
-  // this.authService.register(this.speaker).subscribe()
+  
   this.studentService.getAllStudents().subscribe(a=>{
     this.students=a;
     for(let i=0;i<a.length;i++){

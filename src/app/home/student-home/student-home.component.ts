@@ -15,6 +15,7 @@ import {Event} from 'src/app/_models/event'
 export class StudentHomeComponent implements OnInit {
 
   student:Student=new Student(0,"","","","");
+  stud:Student=new Student(0,"","","","");
   students:Student[]=[];
   events:Event[]=[];
   parameterVal=0;
@@ -51,6 +52,7 @@ export class StudentHomeComponent implements OnInit {
   }
 
   update(){
+    this.student.password=this.stud.password
  
     this.StudentService.UpdateStudent(this.student,this.student._id).subscribe(a=>{
     

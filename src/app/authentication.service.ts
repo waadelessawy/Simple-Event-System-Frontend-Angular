@@ -12,13 +12,9 @@ export class AuthenticationService {
   login(data:any)
   {
     
-    console.log("dataaaaaaaaaa",data);
+    
     return this.http.post<any>(this.baseUrl + "login",data);
   }
-  register(data:any)
-  {
-    console.log(data);
-    return this.http.post<any>(this.baseUrl + "register",data);
-  }
+  
 
 }

@@ -21,14 +21,7 @@ h1 {letter-spacing: 6px}
 <!-- Header -->
 
 <header>
-  <!-- <div>
-    <div class="w3-bar w3-border">
-       <a href="#" class="w3-bar-item w3-button" [routerLink]="['/studentedit']" >Edit Your Data</a>
-      <a href="#" class="w3-bar-item w3-button w3-light-grey" [routerLink]="['/showevents']">See Your Events</a> 
-   
 
-    </div>
-  </div> -->
 </header> 
 
 <content>
@@ -41,7 +34,7 @@ h1 {letter-spacing: 6px}
             
              Email<input type="text" class="form-control"[(ngModel)]="student.email"><br>
              User Name<input type="text" class="form-control"[(ngModel)]="student.username"><br>
-             Password<input type="text" class="form-control"[(ngModel)]="student.password"><br>
+             Password<input type="text" class="form-control"[(ngModel)]="stud.password"><br>
              <button class="btn btn-success" (click)="update()">Update Data</button>
        <br>
        <br>

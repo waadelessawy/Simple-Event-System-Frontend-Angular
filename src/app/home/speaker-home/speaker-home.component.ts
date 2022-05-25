@@ -14,8 +14,9 @@ import { Speaker } from 'src/app/_models/speaker';
 export class SpeakerHomeComponent implements OnInit {
 
   speaker:Speaker=new Speaker(0,"","","","","","","");
-  students:Speaker[]=[];
+  speakers:Speaker[]=[];
   events:Event[]=[];
+  spk :Speaker = new Speaker(0,"","","","","","","");
   parameterVal=0;
 
   constructor(public ac:ActivatedRoute,public SpeakerService:SpeakerService,public router:Router,public EventService:EventService) { }
@@ -63,11 +64,18 @@ export class SpeakerHomeComponent implements OnInit {
   }
 
   update(){
- 
-    this.SpeakerService.UpdateSpeaker(this.speaker,this.speaker._id).subscribe(a=>{
     
-    })
+    {
+      this.speaker.password=this.spk.password;
 
+      this.SpeakerService.UpdateSpeaker(this.speaker,this.speaker._id).subscribe(a=>{
+    
+      })
+  
+
+    }
+    
+ 
   
   }
   }
