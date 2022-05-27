@@ -22,7 +22,7 @@ export class StudentService {
   getAllStudents(){
 
     this.GetToken();
-    console.log(this.httpOptions);
+    console.log("header",this.httpOptions);
     console.log("token in side students"+localStorage.getItem('token'));
     return this.http.get<Student[]>(this.baseUrl,this.httpOptions)
   }
@@ -37,8 +37,8 @@ export class StudentService {
     return this.http.put<Student>(this.baseUrl+id,std,this.httpOptions);
   }
   CreateStudent(std:Student){
-    this.GetToken();
-   return this.http.post<Student>(this.baseUrl,std,this.httpOptions);
+    // this.GetToken();
+   return this.http.post<Student>(this.baseUrl,std);
 
   }
   DeleteStudent(id:number){

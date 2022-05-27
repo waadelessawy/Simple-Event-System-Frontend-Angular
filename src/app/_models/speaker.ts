@@ -1,6 +1,7 @@
 export class Speaker {
     constructor(
-       public _id:number,
+    //    public _id:number,
+       public _id:String,
        public email:String,
        public username:string,
        public password:string,

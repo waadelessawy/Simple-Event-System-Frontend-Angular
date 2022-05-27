@@ -16,8 +16,8 @@ export class AdminSpeakerListComponent implements OnInit {
   constructor(public SpeakerService:SpeakerService,public router:Router) { }
 
   speakers:Speaker[]=[];
-  spk : Speaker=new Speaker(0,"","","","","","","");
-  nspk : Speaker=new Speaker(0,"","non","non","","","","");
+  spk : Speaker=new Speaker("","","","","","","","");
+  nspk : Speaker=new Speaker("","","non","non","","","","");
   ngOnInit(): void {
     console.log("hellooooooooooooooooooooooooooooooooooooo");
     this.SpeakerService.getAllSpeakers().subscribe(a=>{
@@ -27,8 +27,8 @@ export class AdminSpeakerListComponent implements OnInit {
     })
     
   }
-  Delete(id:number){
-    this.spk=this.speakers[id];
+  Delete(id:String){
+    // this.spk=this.speakers[id];
     this.SpeakerService.DeleteSpeaker(id).subscribe(a=>{
       this.ngOnInit()
     })

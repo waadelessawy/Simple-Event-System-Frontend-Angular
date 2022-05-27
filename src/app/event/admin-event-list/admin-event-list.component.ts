@@ -21,9 +21,9 @@ export class AdminEventListComponent implements OnInit {
 
 
   events:Event[]=[];
-  event : Event=new Event(0,"","",0,[0],[0]);
-  nevent : Event=new Event(0,"","",0,[0],[0]);
-  speaker : Speaker=new Speaker(0,"","","","","","","");
+  event : Event=new Event(0,"","","",[""],[0]);
+  nevent : Event=new Event(0,"","","",[""],[0]);
+  speaker : Speaker=new Speaker("","","","","","","","");
   speakers : Speaker[]=[]
   students : Student[]=[]
   student : Student =new Student(0,"","","","");
@@ -46,7 +46,7 @@ export class AdminEventListComponent implements OnInit {
 
   }
   Delete(id:number){
-    // this.event=this.events[id];
+   
     this.EventService.DeleteEvent(id).subscribe(a=>{
       this.ngOnInit()
     })
@@ -56,10 +56,6 @@ export class AdminEventListComponent implements OnInit {
 
   }
   add(){
-
-    console.log(this.nevent._id);
-    // this.nevent._id=5;
-
     this.EventService.CreateEvent(this.nevent).subscribe(a=>{
       this.ngOnInit();
     })

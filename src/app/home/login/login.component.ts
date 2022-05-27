@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', result.token);
         localStorage.setItem('role', result.role);
 
-        let t=   localStorage.getItem('token');
+
        
         console.log('local storage' ,localStorage.getItem('token'))
        
@@ -74,6 +74,14 @@ export class LoginComponent implements OnInit {
             if(this.user.email==val.email){
               
               this.loginService.login(this.user).subscribe(result => {
+                this.role=result.role;
+     
+      
+                localStorage.setItem('token', result.token);
+                localStorage.setItem('role', result.role);
+        
+          
+               
                
                 this.router.navigateByUrl("/student/"+val._id)
               }
@@ -97,9 +105,16 @@ export class LoginComponent implements OnInit {
           for (var val1 of this.speakers){
          
            
-              if(this.user.email==val1.email ){
+              if(this.user.email==val1.email){
              
                 this.loginService.login(this.user).subscribe(result => {
+                  this.role=result.role;
+     
+      
+                  localStorage.setItem('token', result.token);
+                  localStorage.setItem('role', result.role);
+          
+                 
                  
                   
                   this.router.navigateByUrl("/speaker/"+val1._id)

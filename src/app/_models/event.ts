@@ -5,8 +5,8 @@ export class Event {
       public title:string,
       // date: Date,
       public date:string,
-      public mainSpeakerId:number,
-      public otherSpeakersId:number[],
+      public mainSpeakerId:string,
+      public otherSpeakersId:string[],
       public studentsId:number[]
 
        

@@ -17,8 +17,8 @@ import { Student } from 'src/app/_models/student';
 })
 export class AdminEventDetailsComponent implements OnInit {
 
-  event : Event=new Event(0,"","",0,[0],[0]);
-  speaker : Speaker=new Speaker(0,"","","","","","","");
+  event : Event=new Event(0,"","","",[""],[0]);
+  speaker : Speaker=new Speaker("","","","","","","","");
   speakers : Speaker[]=[]
   students : Student[]=[]
   student : Student =new Student(0,"","","","");

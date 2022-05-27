@@ -27,6 +27,7 @@ export class StudentHomeComponent implements OnInit {
       console.log(this.parameterVal);
   
     })
+    this.student.password=""
    this.EventService.getAllEvents().subscribe(a=>{
     //  this.events=a;
      for(let i=0;i<a.length;i++){
@@ -41,22 +42,23 @@ export class StudentHomeComponent implements OnInit {
  console.log(this.events)
    
 
-    this.ac.params.subscribe(a=>{
-      this.StudentService.getStudentById(a['id']).subscribe(
+ 
+      this.StudentService.getStudentById(this.parameterVal).subscribe(
         s=>this.student=s
       )
 
-       
-    })
+  
  
   }
 
   update(){
-    this.student.password=this.stud.password
- 
-    this.StudentService.UpdateStudent(this.student,this.student._id).subscribe(a=>{
     
-    })
+     this.student.password=this.stud.password
+    
+    this.StudentService.UpdateStudent(this.student,this.student._id).subscribe(a=>{
+      this.router.navigateByUrl('/login')
+    
+ })
 
   
   }

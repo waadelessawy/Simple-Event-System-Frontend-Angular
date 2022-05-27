@@ -12,7 +12,7 @@ import { Speaker } from 'src/app/_models/speaker';
 })
 export class AdminSpeakerDetailsComponent implements OnInit {
 
-  speaker:Speaker=new Speaker(0,"","","","","","","");
+  speaker:Speaker=new Speaker("","","","","","","","");
 
   constructor(public ac:ActivatedRoute,public SpeakerService:SpeakerService,public router:Router) { }
 

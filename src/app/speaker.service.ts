@@ -24,21 +24,22 @@ export class SpeakerService {
     return this.http.get<Speaker[]>(this.baseUrl,this.httpOptions)
   }
 
-  getSpeakerById(id:number){
+  getSpeakerById(id:String){
     this.GetToken();
+    
     return this.http.get<Speaker>(this.baseUrl+id,this.httpOptions);
   }
 
-  UpdateSpeaker(spk:Speaker,id:number){
+  UpdateSpeaker(spk:Speaker,id:String){
     this.GetToken();
     return this.http.put<Speaker>(this.baseUrl+id,spk,this.httpOptions);
   }
   CreateSpeaker(spk:Speaker){
-     this.GetToken();
-   return this.http.post<Speaker>(this.baseUrl,spk,this.httpOptions);
+    //  this.GetToken();
+   return this.http.post<Speaker>(this.baseUrl,spk);
 
   }
-  DeleteSpeaker(id:number){
+  DeleteSpeaker(id:String){
     this.GetToken();
     return this.http.delete<Speaker>(this.baseUrl+id,this.httpOptions);
 

@@ -6,9 +6,9 @@
             <th>ID</th>
             <th>Title</th>
              <th>Date</th> 
-            <th>Main Speaker Id</th>
+            <!-- <th>Main Speaker Id</th>
             <th>Other Speakers Id</th>
-            <th>Students Id</th> 
+            <th>Students Id</th>  -->
             <th>Operations</th>
         </tr>
     </thead>
@@ -18,9 +18,9 @@
             <td>{{item._id}}</td>
             <td>{{item.title}}</td>
            <td>{{item.date}}</td>
-            <td>{{item.mainSpeakerId}}</td>
-            <td>{{item.otherSpeakersId}}</td>
-            <td>{{item.studentsId}}</td> 
+            <!-- <td>{{item.mainSpeakerId}}</td>
+            <td>{{item.otherSpeakersId}}</td> -->
+            <!-- <td>{{item.studentsId}}</td>  -->
             <td>
                <div > 
                 <a class="btn btn-info  "[routerLink]="['/adminevents/details',item._id]">Details</a>
@@ -42,6 +42,18 @@
     ID<input type="text" class="form-control" [(ngModel)]="nevent._id"><br>
     Title<input type="text" class="form-control"[(ngModel)]="nevent.title"><br>
     Date<input type="text" class="form-control"[(ngModel)]="nevent.date"><br>
+
+    Main Speaker <select [(ngModel)]="nevent.mainSpeakerId" >
+        <option *ngFor="let item of speakers" value="{{item._id}}">{{item.username}}</option>
+     </select>  <br>
+    <!-- Other Speakers ID<input type="text" readonly="readonly" class="form-control"[(ngModel)]="event.otherSpeakersId"><br> -->
+    Add Speakers To The Event <select [(ngModel)]="nevent.otherSpeakersId" multiple  class="form-select">
+      <option *ngFor="let item of speakers" value="{{item._id}}">{{item.username}}</option>
+   </select><br>
+    <!-- Students ID<input type="text" readonly="readonly" class="form-control"[(ngModel)]="event.studentsId"><br> -->
+    Add Students To The Event <select [(ngModel)]="nevent.studentsId" multiple  class="form-select">
+      <option *ngFor="let item of students" value="{{item._id}}">{{item.username}}</option>
+   </select>
   
     <button class="btn btn-success" (click)="add()">Add Events</button>
     <a href="#" class="link-primary" [routerLink]="['/admin/home']">Back</a>

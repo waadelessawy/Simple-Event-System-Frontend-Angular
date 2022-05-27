@@ -13,11 +13,11 @@ import { Speaker } from 'src/app/_models/speaker';
 })
 export class SpeakerHomeComponent implements OnInit {
 
-  speaker:Speaker=new Speaker(0,"","","","","","","");
+  speaker:Speaker=new Speaker("","","","","","","","");
   speakers:Speaker[]=[];
   events:Event[]=[];
-  spk :Speaker = new Speaker(0,"","","","","","","");
-  parameterVal=0;
+  spk :Speaker = new Speaker("","","","","","","","");
+  parameterVal="";
 
   constructor(public ac:ActivatedRoute,public SpeakerService:SpeakerService,public router:Router,public EventService:EventService) { }
   ngOnInit(): void {
@@ -26,8 +26,14 @@ export class SpeakerHomeComponent implements OnInit {
       console.log(this.parameterVal);
   
     })
+
+      this.SpeakerService.getSpeakerById(this.parameterVal).subscribe(
+        s=>this.speaker=s
+      )
+
+ 
    this.EventService.getAllEvents().subscribe(a=>{
-    //  this.events=a;
+
      for(let i=0;i<a.length;i++){
         for(let j=0;j<a[i].otherSpeakersId.length;j++){
           if(this.parameterVal==a[i].otherSpeakersId[j]){
@@ -49,26 +55,16 @@ export class SpeakerHomeComponent implements OnInit {
         
      }
    })
-
-
    
-
-    this.ac.params.subscribe(a=>{
-      this.SpeakerService.getSpeakerById(a['id']).subscribe(
-        s=>this.speaker=s
-      )
-
-       
-    })
- 
   }
 
   update(){
     
     {
+    
       this.speaker.password=this.spk.password;
-
       this.SpeakerService.UpdateSpeaker(this.speaker,this.speaker._id).subscribe(a=>{
+        this.router.navigateByUrl('/login')
     
       })
   
